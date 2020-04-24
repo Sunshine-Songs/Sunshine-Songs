@@ -1,0 +1,276 @@
+/**
+ * styles.scss: Style source for Sunshine Songs
+ */
+:root {
+  --orange: #bd3624;
+  --yellow: #ffe15e;
+  --purple: #5d1674;
+  --blue: #1e2d6f;
+  --background: white;
+  --gray: #757575;
+  --black: #333;
+  --space-unit: 20px;
+  --gutter-padding: 15px;
+  --border-radius: 4px;
+}
+
+html, body {
+  background: var(--background);
+  color: var(--black);
+  font-family: "sofia-pro", "Gill Sans", sans-serif;
+  font-size: 20px;
+}
+
+.lead {
+  font-size: 1.2em;
+}
+
+footer {
+  background: var(--purple);
+  color: white;
+  padding: calc(2 * var(--space-unit));
+}
+footer img {
+  max-width: 250px;
+}
+footer .small {
+  font-size: 0.85em;
+}
+
+h1 {
+  letter-spacing: 0.6px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.label {
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  line-height: 1.33;
+  vertical-align: top;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.container {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.hero {
+  background-image: url(../img/hero.png);
+  padding-top: calc(var(--space-unit) * 3);
+  padding-bottom: calc(var(--space-unit) * 3);
+}
+.hero img.header {
+  width: 400px;
+  max-width: 100%;
+}
+
+.youtube-placeholder {
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  color: white;
+  width: 560px;
+  height: 315px;
+  background: var(--blue);
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.youtube-placeholder.show-concert {
+  display: none;
+}
+.youtube-placeholder .placeholder-title {
+  padding: var(--space-unit);
+  background: var(--gray);
+}
+.youtube-placeholder .host {
+  padding: var(--space-unit);
+  background: var(--gray);
+}
+.youtube-placeholder .countdown-number {
+  font-size: 2em;
+}
+
+.youtube-video {
+  display: none;
+}
+.youtube-video.show-concert {
+  display: block;
+}
+
+.sunshine-list .sunshine-list-item {
+  display: inline-block;
+  padding: calc(var(--space-unit) / 2) var(--space-unit);
+  background: var(--orange);
+  color: white;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  margin-left: var(--space-unit);
+  margin-right: var(--space-unit);
+  margin-bottom: var(--space-unit);
+}
+
+.section {
+  padding-top: calc(var(--space-unit) * 4);
+  padding-bottom: calc(var(--space-unit) * 4);
+}
+.section.white {
+  background: white;
+}
+
+.row {
+  display: flex;
+}
+.row.wrap {
+  flex-wrap: wrap;
+}
+.row.space-evenly {
+  justify-content: space-evenly;
+}
+.row .col {
+  flex: 1 1;
+}
+.row .col-third {
+  flex: 0 1 33.3333333333%;
+  min-width: 33.3333333333%;
+  max-width: 33.3333333333%;
+}
+.row .col-half {
+  flex: 0 1 50%;
+  min-width: 50%;
+  max-width: 50%;
+}
+.row .col-two-third {
+  flex: 0 1 66.6666666667%;
+  min-width: 66.6666666667%;
+  max-width: 66.6666666667%;
+}
+@media screen and (max-width: 768px) {
+  .row .xs-full {
+    width: 100%;
+    min-width: 100%;
+  }
+}
+.row.gutters > .col, .row.gutters > .col-half, .row.gutters > .col-third, .row.gutters > .col-two-third, .row.gutters > .col-quarter, .row.gutters > .col-fifth, .row.gutters > .col-two-fifth, .row.gutters > .col-three-fifth, .row.gutters > .col-three-quarter {
+  padding-left: var(--gutter-padding);
+  padding-right: var(--gutter-padding);
+}
+.row.gutters > .col:first-child, .row.gutters > .col-half:first-child, .row.gutters > .col-third:first-child, .row.gutters > .col-two-third:first-child, .row.gutters > .col-quarter:first-child, .row.gutters > .col-fifth:first-child, .row.gutters > .col-two-fifth:first-child, .row.gutters > .col-three-fifth:first-child, .row.gutters > .col-three-quarter:first-child {
+  padding-left: 0;
+}
+.row.gutters > .col:last-child, .row.gutters > .col-half:last-child, .row.gutters > .col-third:last-child, .row.gutters > .col-two-third:last-child, .row.gutters > .col-quarter:last-child, .row.gutters > .col-fifth:last-child, .row.gutters > .col-two-fifth:last-child, .row.gutters > .col-three-fifth:last-child, .row.gutters > .col-three-quarter:last-child {
+  padding-right: 0;
+}
+@media screen and (max-width: 768px) {
+  .row .gutters .xs-full {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+.news-mention {
+  margin-bottom: calc(var(--space-unit) * 2);
+  margin-left: calc(var(--space-unit) * 2);
+  margin-right: calc(var(--space-unit) * 2);
+}
+.news-mention, .news-mention img {
+  height: 100px;
+}
+.news-mention img {
+  filter: grayscale(1);
+}
+
+.center {
+  text-align: center;
+}
+
+.partner-logo {
+  width: 200px;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .xs-space-top {
+    padding-top: calc(var(--space-unit));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .xs-space-top-2x {
+    padding-top: calc(var(--space-unit) * 2);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .xs-space-top-3x {
+    padding-top: calc(var(--space-unit) * 3);
+  }
+}
+
+.space-top {
+  padding-top: calc(var(--space-unit));
+}
+
+.space-top-2x {
+  padding-top: calc(var(--space-unit) * 2);
+}
+
+.space-top-3x {
+  padding-top: calc(var(--space-unit) * 3);
+}
+
+.timeline-section {
+  background: linear-gradient(to bottom right, var(--orange), var(--purple));
+  color: white;
+}
+.timeline-section a, .timeline-section a:visited {
+  color: white;
+}
+.timeline-section a:active, .timeline-section a:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.timeline {
+  position: relative;
+  padding-left: calc(var(--space-unit) * 2);
+}
+.timeline:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: calc(-1 * var(--space-unit));
+  bottom: calc(-1 * var(--space-unit));
+  background: var(--purple);
+  border-radius: calc(var(--space-unit) / 2);
+  width: var(--space-unit);
+}
+.timeline .timeline-entry {
+  position: relative;
+  margin-bottom: calc(2 * var(--space-unit));
+}
+.timeline .timeline-entry:last-child {
+  margin-bottom: 0;
+}
+.timeline .timeline-entry:before {
+  content: " ";
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  left: calc(2 * calc(-1 * var(--space-unit)));
+  top: 2px;
+  width: var(--space-unit);
+  height: var(--space-unit);
+  background: var(--yellow);
+}
+
+.action-icon {
+  font-size: 60px;
+  margin-bottom: calc(var(--space-unit) / 2);
+}
