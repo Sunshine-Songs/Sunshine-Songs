@@ -47,7 +47,7 @@
         }
         // These classes switch what gets displayed
         document.querySelector('.youtube-placeholder').className += ' show-concert';
-        document.querySelector('.youtube-vidoe').className += ' show-concert';
+        document.querySelector('.youtube-video').className += ' show-concert';
         return true;
     };
     window.addEventListener('load', function () {
@@ -57,13 +57,34 @@
                 timerInterval = setInterval(updateTimer, UPDATE_INTRERVAL);
             }
         }
-    })
+    });
+    window.modal = function(modalId, method) {
+        const OPEN_CLASS = 'modal-open'
+        var modal = document.querySelector('#' + modalId),
+            body = document.querySelector('body');
+        if (method === 'open') {
+            if (modal.className.indexOf(OPEN_CLASS) === -1) {
+                modal.className += ' ' + OPEN_CLASS;
+                body.className += ' ' + OPEN_CLASS;
+            }
+        } else if (method === 'close') {
+            var openIndex = modal.className.indexOf(OPEN_CLASS);
+            if (openIndex > -1) {
+                modal.className = modal.className.replace(
+                    OPEN_CLASS,
+                    ''
+                );
+                body.className = body.className.replace(
+                    OPEN_CLASS,
+                    ''
+                );
+            }
+        }
+    };
+    // Even if window hasn't yet loaded, the elements should be available, so
+    // we should configure them to prevent flashing the wrong thing
+    try {
+        updateVideoDisplay();
+        updateTimer();
+    } catch (ex) { ; }
 })();
-
-function performUpdates() {
-
-};
-
-window.onload = function () {
-
-};

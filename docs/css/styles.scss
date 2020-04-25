@@ -25,6 +25,29 @@ html, body {
     font-size: 20px;
 }
 
+body {
+    &.modal-open {
+        overflow: hidden;
+    }
+}
+
+a {
+    &, &:visited, &:link, &:hover {
+        color: var(--orange);
+    }
+    &:active {
+        color: var(--yellow);
+    }
+}
+ul {
+    li {
+        margin-bottom: 1em;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
 .lead {
     font-size: 1.2em;
 }
@@ -48,6 +71,10 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     margin-top: 0;
     margin-bottom: 0;
+
+    &.light {
+        font-weight: normal;
+    }
 }
 
 .label {
@@ -67,12 +94,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero {
     background-image: url(../img/hero.png);
-    padding-top: calc(var(--space-unit) * 3);
+    padding-top: calc(var(--space-unit) * 1);
     padding-bottom: calc(var(--space-unit) * 3);
     img.header {
         width: 400px;
         max-width: 100%;
     }
+}
+
+.well {
+    color: white;
+    background: var(--orange);
+    padding: var(--space-unit);
+    border-radius: var(--border-radius);
 }
 
 .youtube-placeholder {
@@ -81,7 +115,7 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     width: 560px;
     height: 315px;
-    background: var(--blue);
+    background: var(--yellow);
     &.show-concert {
         display: none;
     }
@@ -90,14 +124,31 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: space-between;
     .placeholder-title {
         padding: var(--space-unit);
-        background: var(--gray)
+        background: var(--orange)
     }
     .host {
       padding: var(--space-unit);
-      background: var(--gray)
+      background: var(--orange)
     }
-    .countdown-number {
-        font-size: 2em;
+    .countdown-row {
+        --gutter-padding: 7.5px;
+        &.gutters {
+            padding-left: var(--gutter-padding);
+            padding-right: var(--gutter-padding);
+        }
+    }
+    .countdown-container {
+        
+        background: rgba(189, 54, 36, 0.6);
+        // width: 100%;
+        // height: 100%;
+        padding-top: var(--space-unit);
+        padding-bottom: var(--space-unit);
+        border-radius: var(--border-radius);
+        .countdown-number {
+            font-size: 2em;
+            // line-height: 1;
+        }
     }
 }
 
@@ -138,6 +189,9 @@ h1, h2, h3, h4, h5, h6 {
         max-width: $pct;
     }
     display: flex;
+    &.vcenter {
+        align-items: center;
+    }
     &.wrap {
         flex-wrap: wrap;
     }
@@ -193,7 +247,8 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: calc(var(--space-unit) * 2);
     margin-right: calc(var(--space-unit) * 2);
     &, img {
-        height: 100px;
+        max-height: 50px;
+        max-width: 80px;
     }
     img {
         filter: grayscale(1);
@@ -282,4 +337,44 @@ h1, h2, h3, h4, h5, h6 {
 .action-icon {
     font-size: 60px;
     margin-bottom: calc(var(--space-unit) / 2);
+}
+
+.modal {
+    // The modal is an overlay, and there is a window within the overlay
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(189, 54, 36, 0.2);
+    visibility: hidden;
+    opacity: 0;
+    z-index: -1;
+    transition: all 0.25s ease;
+    &.modal-open {
+        // When selected, open the modal
+        opacity: 1;
+        visibility: visible;
+        z-index: 100;
+    }
+    .modal-window {
+        box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 500px;
+        background: white;
+        padding: var(--space-unit);
+        border-radius: var(--border-radius);
+        .close {
+            position: absolute;
+            right: var(--space-unit);
+            // top: var(--space-unit);
+            top: calc(var(--space-unit) / 2);
+            font-size: 2em;
+            line-height: 1;
+            text-decoration: none;
+        }
+    }
 }

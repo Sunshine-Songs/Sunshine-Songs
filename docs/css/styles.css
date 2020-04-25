@@ -21,6 +21,24 @@ html, body {
   font-size: 20px;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
+a, a:visited, a:link, a:hover {
+  color: var(--orange);
+}
+a:active {
+  color: var(--yellow);
+}
+
+ul li {
+  margin-bottom: 1em;
+}
+ul li:last-child {
+  margin-bottom: 0;
+}
+
 .lead {
   font-size: 1.2em;
 }
@@ -46,6 +64,9 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0;
 }
+h1.light, h2.light, h3.light, h4.light, h5.light, h6.light {
+  font-weight: normal;
+}
 
 .label {
   font-weight: 600;
@@ -64,7 +85,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero {
   background-image: url(../img/hero.png);
-  padding-top: calc(var(--space-unit) * 3);
+  padding-top: calc(var(--space-unit) * 1);
   padding-bottom: calc(var(--space-unit) * 3);
 }
 .hero img.header {
@@ -72,12 +93,19 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 100%;
 }
 
+.well {
+  color: white;
+  background: var(--orange);
+  padding: var(--space-unit);
+  border-radius: var(--border-radius);
+}
+
 .youtube-placeholder {
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
   color: white;
   width: 560px;
   height: 315px;
-  background: var(--blue);
+  background: var(--yellow);
   display: inline-flex;
   flex-direction: column;
   justify-content: space-between;
@@ -87,13 +115,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 .youtube-placeholder .placeholder-title {
   padding: var(--space-unit);
-  background: var(--gray);
+  background: var(--orange);
 }
 .youtube-placeholder .host {
   padding: var(--space-unit);
-  background: var(--gray);
+  background: var(--orange);
 }
-.youtube-placeholder .countdown-number {
+.youtube-placeholder .countdown-row {
+  --gutter-padding: 7.5px;
+}
+.youtube-placeholder .countdown-row.gutters {
+  padding-left: var(--gutter-padding);
+  padding-right: var(--gutter-padding);
+}
+.youtube-placeholder .countdown-container {
+  background: rgba(189, 54, 36, 0.6);
+  padding-top: var(--space-unit);
+  padding-bottom: var(--space-unit);
+  border-radius: var(--border-radius);
+}
+.youtube-placeholder .countdown-container .countdown-number {
   font-size: 2em;
 }
 
@@ -126,6 +167,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .row {
   display: flex;
+}
+.row.vcenter {
+  align-items: center;
 }
 .row.wrap {
   flex-wrap: wrap;
@@ -180,7 +224,8 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: calc(var(--space-unit) * 2);
 }
 .news-mention, .news-mention img {
-  height: 100px;
+  max-height: 50px;
+  max-width: 80px;
 }
 .news-mention img {
   filter: grayscale(1);
@@ -273,4 +318,41 @@ h1, h2, h3, h4, h5, h6 {
 .action-icon {
   font-size: 60px;
   margin-bottom: calc(var(--space-unit) / 2);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(189, 54, 36, 0.2);
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.25s ease;
+}
+.modal.modal-open {
+  opacity: 1;
+  visibility: visible;
+  z-index: 100;
+}
+.modal .modal-window {
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  background: white;
+  padding: var(--space-unit);
+  border-radius: var(--border-radius);
+}
+.modal .modal-window .close {
+  position: absolute;
+  right: var(--space-unit);
+  top: calc(var(--space-unit) / 2);
+  font-size: 2em;
+  line-height: 1;
+  text-decoration: none;
 }
