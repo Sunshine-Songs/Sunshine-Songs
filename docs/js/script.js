@@ -5,6 +5,10 @@
     const UPDATE_INTRERVAL = 100,
         CONCERT_START = new Date(1588456800000),
         CONCERT_SHOW = new Date(1588456740000); // 1 min before concert start
+    // const UPDATE_INTRERVAL = 100,
+    //     CONCERT_START = new Date(1587847001467),
+    //     CONCERT_SHOW = new Date(1587847001467); // 1 min before concert start
+        
 
     var timerInterval, videoDisplayInterval;
 
@@ -33,6 +37,7 @@
         return true;
     };
     function updateVideoDisplay() {
+        const SHOW_CONCERT = 'show-concert';
         var now = new Date();
         if (now < CONCERT_SHOW) {
             return false // Not yet time to show the concert
@@ -46,8 +51,14 @@
             clearInterval(videoDisplayInterval);
         }
         // These classes switch what gets displayed
-        document.querySelector('.youtube-placeholder').className += ' show-concert';
-        document.querySelector('.youtube-video').className += ' show-concert';
+        var placeholder = document.querySelector('.youtube-placeholder'),
+            video = document.querySelector('.youtube-video');
+        if (placeholder.className.indexOf(SHOW_CONCERT) === -1) {
+            placeholder.className += ' ' + SHOW_CONCERT;
+        }
+        if (video.className.indexOf(SHOW_CONCERT) === -1) {
+            video.className += ' ' + SHOW_CONCERT;
+        }
         return true;
     };
     window.addEventListener('load', function () {

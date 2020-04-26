@@ -2,7 +2,7 @@
  * styles.scss: Style source for Sunshine Songs
  */
 :root {
-  --orange: #bd3624;
+  --orange: #d84923;
   --yellow: #ffe15e;
   --purple: #5d1674;
   --blue: #1e2d6f;
@@ -59,6 +59,14 @@ h1 {
   letter-spacing: 0.6px;
 }
 
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.17em;
+}
+
 h1, h2, h3, h4, h5, h6 {
   text-align: center;
   margin-top: 0;
@@ -100,12 +108,19 @@ h1.light, h2.light, h3.light, h4.light, h5.light, h6.light {
   border-radius: var(--border-radius);
 }
 
+.divider {
+  font-size: 1.25em;
+  text-align: center;
+}
+
 .youtube-placeholder {
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
   color: white;
   width: 560px;
   height: 315px;
-  background: var(--yellow);
+  background: rgba(216, 73, 35, 0.4);
+  border-left: var(--border-radius) solid var(--orange);
+  border-right: var(--border-radius) solid var(--orange);
   display: inline-flex;
   flex-direction: column;
   justify-content: space-between;
@@ -129,20 +144,26 @@ h1.light, h2.light, h3.light, h4.light, h5.light, h6.light {
   padding-right: var(--gutter-padding);
 }
 .youtube-placeholder .countdown-container {
-  background: rgba(189, 54, 36, 0.6);
   padding-top: var(--space-unit);
   padding-bottom: var(--space-unit);
-  border-radius: var(--border-radius);
 }
 .youtube-placeholder .countdown-container .countdown-number {
   font-size: 2em;
 }
+@media screen and (max-width: 600px) {
+  .youtube-placeholder {
+    height: auto;
+    max-width: 100%;
+  }
+}
 
 .youtube-video {
   display: none;
+  max-width: 100%;
 }
 .youtube-video.show-concert {
   display: block;
+  margin: 0 auto;
 }
 
 .sunshine-list .sunshine-list-item {
@@ -160,6 +181,9 @@ h1.light, h2.light, h3.light, h4.light, h5.light, h6.light {
 .section {
   padding-top: calc(var(--space-unit) * 4);
   padding-bottom: calc(var(--space-unit) * 4);
+}
+.section.less-space-top {
+  padding-top: calc(var(--space-unit) * 1);
 }
 .section.white {
   background: white;
@@ -180,6 +204,11 @@ h1.light, h2.light, h3.light, h4.light, h5.light, h6.light {
 .row .col {
   flex: 1 1;
 }
+.row .col-quarter {
+  flex: 0 1 25%;
+  min-width: 25%;
+  max-width: 25%;
+}
 .row .col-third {
   flex: 0 1 33.3333333333%;
   min-width: 33.3333333333%;
@@ -195,7 +224,7 @@ h1.light, h2.light, h3.light, h4.light, h5.light, h6.light {
   min-width: 66.6666666667%;
   max-width: 66.6666666667%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   .row .xs-full {
     width: 100%;
     min-width: 100%;
@@ -211,10 +240,17 @@ h1.light, h2.light, h3.light, h4.light, h5.light, h6.light {
 .row.gutters > .col:last-child, .row.gutters > .col-half:last-child, .row.gutters > .col-third:last-child, .row.gutters > .col-two-third:last-child, .row.gutters > .col-quarter:last-child, .row.gutters > .col-fifth:last-child, .row.gutters > .col-two-fifth:last-child, .row.gutters > .col-three-fifth:last-child, .row.gutters > .col-three-quarter:last-child {
   padding-right: 0;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   .row .gutters .xs-full {
     padding-left: 0 !important;
     padding-right: 0 !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .row .col-half-xs {
+    flex: 0 1 50%;
+    min-width: 50%;
+    max-width: 50%;
   }
 }
 
@@ -224,11 +260,11 @@ h1.light, h2.light, h3.light, h4.light, h5.light, h6.light {
   margin-right: calc(var(--space-unit) * 2);
 }
 .news-mention, .news-mention img {
-  max-height: 50px;
-  max-width: 80px;
+  max-height: 70px;
+  max-width: 130px;
 }
 .news-mention img {
-  filter: grayscale(1);
+  filter: grayscale(1) contrast(1.3);
 }
 
 .center {
@@ -240,19 +276,19 @@ h1.light, h2.light, h3.light, h4.light, h5.light, h6.light {
   max-width: 100%;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   .xs-space-top {
     padding-top: calc(var(--space-unit));
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   .xs-space-top-2x {
     padding-top: calc(var(--space-unit) * 2);
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   .xs-space-top-3x {
     padding-top: calc(var(--space-unit) * 3);
   }
@@ -316,7 +352,7 @@ h1.light, h2.light, h3.light, h4.light, h5.light, h6.light {
 }
 
 .action-icon {
-  font-size: 60px;
+  font-size: 48px;
   margin-bottom: calc(var(--space-unit) / 2);
 }
 
@@ -326,7 +362,7 @@ h1.light, h2.light, h3.light, h4.light, h5.light, h6.light {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(189, 54, 36, 0.2);
+  background: rgba(216, 73, 35, 0.2);
   visibility: hidden;
   opacity: 0;
   z-index: -1;

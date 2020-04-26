@@ -2,8 +2,11 @@
  * styles.scss: Style source for Sunshine Songs
  */
 
+$cutoff-width: 600px;
+
 :root {
-    --orange: #bd3624;
+    // --orange: #bd3624;
+    --orange: #d84923;
     --yellow: #ffe15e;
     --purple: #5d1674;
     --blue: #1e2d6f;
@@ -67,6 +70,12 @@ footer {
 h1 {
     letter-spacing: 0.6px;
 }
+h2 {
+    font-size: 1.5em;
+}
+h3 {
+    font-size: 1.17em;
+}
 h1, h2, h3, h4, h5, h6 {
     text-align: center;
     margin-top: 0;
@@ -109,13 +118,20 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: var(--border-radius);
 }
 
+.divider {
+    font-size: 1.25em;
+    text-align: center;
+}
+
 .youtube-placeholder {
-    // box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);;
     box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
     color: white;
     width: 560px;
     height: 315px;
-    background: var(--yellow);
+    // background: var(--yellow);
+    background: rgba(216, 73, 35, 0.4);
+    border-left: var(--border-radius) solid var(--orange);
+    border-right: var(--border-radius) solid var(--orange);
     &.show-concert {
         display: none;
     }
@@ -138,24 +154,25 @@ h1, h2, h3, h4, h5, h6 {
         }
     }
     .countdown-container {
-        
-        background: rgba(189, 54, 36, 0.6);
-        // width: 100%;
-        // height: 100%;
         padding-top: var(--space-unit);
         padding-bottom: var(--space-unit);
-        border-radius: var(--border-radius);
         .countdown-number {
             font-size: 2em;
-            // line-height: 1;
         }
+    }
+
+    @media screen and (max-width: $cutoff-width) {
+        height: auto;
+        max-width: 100%;
     }
 }
 
 .youtube-video {
     display: none;
+    max-width: 100%;
     &.show-concert {
         display: block;
+        margin: 0 auto;
     }
 }
 
@@ -176,6 +193,10 @@ h1, h2, h3, h4, h5, h6 {
 .section {
     padding-top: calc(var(--space-unit) * 4);
     padding-bottom: calc(var(--space-unit) * 4);
+
+    &.less-space-top {
+        padding-top: calc(var(--space-unit) * 1);
+    }
 
     &.white {
         background: white;
@@ -201,6 +222,9 @@ h1, h2, h3, h4, h5, h6 {
     .col {
         flex: 1 1;
     }
+    .col-quarter {
+        @include flex-column(25%);
+    }
     .col-third {
         @include flex-column(33.33333333333%);
     }
@@ -211,7 +235,7 @@ h1, h2, h3, h4, h5, h6 {
         @include flex-column(66.6666666666666%);
     }
     .xs-full {
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: $cutoff-width) {
             width: 100%;
             min-width: 100%;
         }
@@ -235,9 +259,14 @@ h1, h2, h3, h4, h5, h6 {
         padding-right: var(--gutter-padding);
     }
     .gutters .xs-full {
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: $cutoff-width) {
             padding-left: 0 !important;
             padding-right: 0 !important;
+        }
+    }
+    .col-half-xs {
+        @media screen and (max-width: $cutoff-width) {
+            @include flex-column(50%);
         }
     }
 }
@@ -247,11 +276,11 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: calc(var(--space-unit) * 2);
     margin-right: calc(var(--space-unit) * 2);
     &, img {
-        max-height: 50px;
-        max-width: 80px;
+        max-height: 70px;
+        max-width: 130px;
     }
     img {
-        filter: grayscale(1);
+        filter: grayscale(1) contrast(1.3);
     }
 }
 .center {
@@ -262,17 +291,17 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 100%;
 }
 .xs-space-top {
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $cutoff-width) {
         padding-top: calc(var(--space-unit));
     }
 }
 .xs-space-top-2x {
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $cutoff-width) {
         padding-top: calc(var(--space-unit) * 2);
     }
 }
 .xs-space-top-3x {
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $cutoff-width) {
         padding-top: calc(var(--space-unit) * 3);
     }
 }
@@ -335,7 +364,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .action-icon {
-    font-size: 60px;
+    font-size: 48px;
     margin-bottom: calc(var(--space-unit) / 2);
 }
 
@@ -346,7 +375,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(189, 54, 36, 0.2);
+    background: rgba(216, 73, 35, 0.2);
     visibility: hidden;
     opacity: 0;
     z-index: -1;
