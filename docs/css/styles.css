@@ -14,6 +14,10 @@
   --border-radius: 4px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   background: var(--background);
   color: var(--black);
@@ -58,6 +62,11 @@ footer .small {
 h1 {
   letter-spacing: 0.6px;
 }
+@media screen and (max-width: 600px) {
+  h1.hero-header {
+    font-size: 1.5em;
+  }
+}
 
 h2 {
   font-size: 1.5em;
@@ -95,6 +104,12 @@ h1.light, h2.light, h3.light, h4.light, h5.light, h6.light {
   background-image: url(../img/hero.png);
   padding-top: calc(var(--space-unit) * 1);
   padding-bottom: calc(var(--space-unit) * 3);
+}
+@media screen and (max-width: 768px) {
+  .hero {
+    padding-left: var(--space-unit);
+    padding-right: var(--space-unit);
+  }
 }
 .hero img.header {
   width: 400px;
@@ -188,6 +203,12 @@ h1.light, h2.light, h3.light, h4.light, h5.light, h6.light {
 .section.white {
   background: white;
 }
+@media screen and (max-width: 768px) {
+  .section {
+    padding-left: var(--space-unit);
+    padding-right: var(--space-unit);
+  }
+}
 
 .row {
   display: flex;
@@ -241,7 +262,7 @@ h1.light, h2.light, h3.light, h4.light, h5.light, h6.light {
   padding-right: 0;
 }
 @media screen and (max-width: 600px) {
-  .row .gutters .xs-full {
+  .row.gutters .xs-full {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
@@ -269,6 +290,12 @@ h1.light, h2.light, h3.light, h4.light, h5.light, h6.light {
 
 .center {
   text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .xs-left {
+    text-align: left;
+  }
 }
 
 .partner-logo {
@@ -380,9 +407,14 @@ h1.light, h2.light, h3.light, h4.light, h5.light, h6.light {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 500px;
+  max-width: 100%;
   background: white;
   padding: var(--space-unit);
   border-radius: var(--border-radius);
+  max-width: 100%;
+  max-height: 100%;
+  overflow-y: scroll;
+  word-wrap: break-word;
 }
 .modal .modal-window .close {
   position: absolute;
@@ -391,4 +423,13 @@ h1.light, h2.light, h3.light, h4.light, h5.light, h6.light {
   font-size: 2em;
   line-height: 1;
   text-decoration: none;
+}
+@media screen and (max-width: 600px) {
+  .modal .modal-window {
+    padding-top: calc(var(--space-unit) * 2);
+  }
+  .modal .modal-window .close {
+    right: calc(var(--space-unit) / 2);
+    top: calc(var(--space-unit) / 5);
+  }
 }

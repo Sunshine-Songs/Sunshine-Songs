@@ -3,6 +3,7 @@
  */
 
 $cutoff-width: 600px;
+$container-width: 768px;
 
 :root {
     // --orange: #bd3624;
@@ -17,6 +18,10 @@ $cutoff-width: 600px;
     --space-unit: 20px;
     --gutter-padding: 15px;
     --border-radius: 4px;
+}
+
+* {
+	box-sizing: border-box;
 }
 
 html, body {
@@ -69,6 +74,11 @@ footer {
 
 h1 {
     letter-spacing: 0.6px;
+    &.hero-header {
+        @media screen and (max-width: $cutoff-width) {
+            font-size: 1.5em;
+        }
+    }
 }
 h2 {
     font-size: 1.5em;
@@ -105,6 +115,10 @@ h1, h2, h3, h4, h5, h6 {
     background-image: url(../img/hero.png);
     padding-top: calc(var(--space-unit) * 1);
     padding-bottom: calc(var(--space-unit) * 3);
+    @media screen and (max-width: $container-width) {
+        padding-left: var(--space-unit);
+        padding-right: var(--space-unit);
+    }
     img.header {
         width: 400px;
         max-width: 100%;
@@ -201,6 +215,12 @@ h1, h2, h3, h4, h5, h6 {
     &.white {
         background: white;
     }
+
+    // Create some breathing room for everything on mobile and small desktop
+    @media screen and (max-width: $container-width) {
+        padding-left: var(--space-unit);
+        padding-right: var(--space-unit);
+    }
 }
 
 .row {
@@ -258,7 +278,7 @@ h1, h2, h3, h4, h5, h6 {
         padding-left: var(--gutter-padding);
         padding-right: var(--gutter-padding);
     }
-    .gutters .xs-full {
+    &.gutters .xs-full {
         @media screen and (max-width: $cutoff-width) {
             padding-left: 0 !important;
             padding-right: 0 !important;
@@ -285,6 +305,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 .center {
     text-align: center;
+}
+.xs-left {
+    @media screen and (max-width: $cutoff-width) {
+        text-align: left;
+    }
 }
 .partner-logo {
     width: 200px;
@@ -393,17 +418,28 @@ h1, h2, h3, h4, h5, h6 {
         left: 50%;
         transform: translate(-50%, -50%);
         width: 500px;
+        max-width: 100%;
         background: white;
         padding: var(--space-unit);
         border-radius: var(--border-radius);
+        max-width: 100%;
+        max-height: 100%;
+        overflow-y: scroll;
+        word-wrap: break-word;
         .close {
             position: absolute;
             right: var(--space-unit);
-            // top: var(--space-unit);
             top: calc(var(--space-unit) / 2);
             font-size: 2em;
             line-height: 1;
             text-decoration: none;
+        }
+        @media screen and (max-width: $cutoff-width) {
+            padding-top: calc(var(--space-unit) * 2); // More room for X
+            .close {
+                right: calc(var(--space-unit) / 2);
+                top: calc(var(--space-unit) / 5);
+            }
         }
     }
 }
