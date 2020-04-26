@@ -6,12 +6,10 @@ $cutoff-width: 600px;
 $container-width: 768px;
 
 :root {
-    // --orange: #bd3624;
     --orange: #d84923;
     --yellow: #ffe15e;
     --purple: #5d1674;
     --blue: #1e2d6f;
-    // --background: #FDF5E6;
     --background: white;
     --gray: #757575;
     --black: #333;
@@ -27,8 +25,6 @@ $container-width: 768px;
 html, body {
     background: var(--background);
     color: var(--black);
-    // font-family: "Gill Sans", sans-serif;
-    // font-family: Sofia Pro, Sofia Pro Soft, and Sofia Condensed
     font-family: "sofia-pro", "Gill Sans", sans-serif;
     font-size: 20px;
 }
@@ -112,7 +108,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero {
-    background-image: url(../img/hero.png);
+    background-image: url(../static/hero.png);
     padding-top: calc(var(--space-unit) * 1);
     padding-bottom: calc(var(--space-unit) * 3);
     @media screen and (max-width: $container-width) {
@@ -142,7 +138,6 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     width: 560px;
     height: 315px;
-    // background: var(--yellow);
     background: rgba(216, 73, 35, 0.4);
     border-left: var(--border-radius) solid var(--orange);
     border-right: var(--border-radius) solid var(--orange);
@@ -342,7 +337,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .timeline-section {
     background: linear-gradient(to bottom right, var(--orange), var(--purple));
-    // background: linear-gradient(to bottom right, var(--blue), var(--yellow));
     color: white;
     a {
         &, &:visited {
