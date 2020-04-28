@@ -5,6 +5,8 @@
 $cutoff-width: 600px;
 $container-width: 768px;
 
+$orange: #d84923;
+
 :root {
     --orange: #d84923;
     --yellow: #ffe15e;
@@ -56,6 +58,38 @@ ul {
     font-size: 1.2em;
 }
 
+@mixin alt-text () {
+    font-weight: 600;
+	letter-spacing: 1.5px;
+	line-height: 1.33;
+	vertical-align: top;
+	margin-top: 0;
+	margin-bottom: 0;
+	text-transform: uppercase;
+}
+
+.btn {
+	border-radius: var(--border-radius);
+	display: inline-block;
+    text-decoration: underline;
+	text-align: center;
+    padding: calc(var(--space-unit) / 2) var(--space-unit);
+    transition: background-color 250ms ease;
+
+    @include alt-text();
+
+    &.primary {
+        background: var(--orange);
+        color: white;
+        &:hover {
+            background: darken($orange, 10%);
+        }
+        &:active {
+            background: darken($orange, 20%);
+        }
+    }
+}
+
 footer {
     background: var(--purple);
     color: white;
@@ -93,13 +127,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .label {
-	font-weight: 600;
-	letter-spacing: 1.5px;
-	line-height: 1.33;
-	vertical-align: top;
-	margin-top: 0;
-	margin-bottom: 0;
-	text-transform: uppercase;
+    @include alt-text();
 }
 
 .container {
